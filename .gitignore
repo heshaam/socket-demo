@@ -1,0 +1,15 @@
+node_modules/
+.venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+firewall/.npmrc
+evidence/*.txt
+!evidence/README.md
+evidence
+docs
+README.md
+firewall/commands.txt

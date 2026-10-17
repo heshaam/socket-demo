@@ -1,0 +1,20 @@
+# TEMPLATE: supply the documented Socket Firewall registry-mode image, entrypoint,
+# required token/environment variables, and listener port before running.
+# This file does not claim the image can run without Socket-specific configuration.
+services:
+  socket-firewall:
+    image: ${SOCKET_FIREWALL_IMAGE}
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      - SOCKET_SECURITY_API_TOKEN=${SOCKET_SECURITY_API_TOKEN}
+    volumes:
+      - ./socket.yml:/app/socket.yml:ro
+      - ./ssl:/etc/nginx/ssl
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fk", "https://localhost:8443/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
