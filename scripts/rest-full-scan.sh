@@ -5,7 +5,7 @@ mkdir -p evidence
 SOCKET_FULL_SCAN_URL="https://api.socket.dev/v0/orgs/heshaam-attar-org/full-scans?repo=socket-demo&workspace=Demo&branch=main&make_default_branch=false&set_as_pending_head=false&tmp=false&scan_type=socket"
 # Set curl arguments
 args=(-sS -D evidence/rest-full-scan-headers.txt -o evidence/rest-full-scan-response.json -w '%{http_code}' -X POST)
-args+=(-H "Authorization: Bearer ${SOCKET_TOKEN}" -H 'Accept: application/json')
+args+=(-H "Authorization: Bearer ${SOCKET_SCAN_TOKEN}" -H 'Accept: application/json')
 args+=(-F package.json=@../apps/web/package.json)
 args+=(-F requirements.txt=@../services/python-api/requirements.txt)
 # Run curl to execute full scan
