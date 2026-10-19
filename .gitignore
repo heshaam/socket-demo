@@ -7,9 +7,7 @@ __pycache__/
 *.log
 .DS_Store
 firewall/.npmrc
-evidence/*.txt
-!evidence/README.md
-evidence
 docs
 README.md
 firewall/setup.txt
+scripts/evidence
